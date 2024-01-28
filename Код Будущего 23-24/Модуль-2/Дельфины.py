@@ -3,21 +3,22 @@
 import turtle
 
 
-DOLPHIN = ((-14, -2), (-8, 2), (-2, 4), (4, 8), (2, 4), (14, 0), (20, 2),
-           (18, 0), (20, -2), (14, 0), (2, -4), (4, -8), (-2, -4), (-14, -2))
+DOLPHIN = ((-14, -2), (-8, 2), (-2, 4), (4, 8),
+           (2, 4), (14, 0), (20, 2), (18, 0),
+           (20, -2), (14, 0), (2, -4), (4, -8), (-2, -4), (-14, -2))
 color1, color2, contour, mul, radius, count = [int(x) if x.isnumeric() else x for x in input().split()]
-screen = turtle.Screen()
-screen.register_shape('dolphin', DOLPHIN)
+turtle.register_shape('dolphin', DOLPHIN)
+turtle.tracer(0)
 tom = turtle.Turtle()
 tom.shape('dolphin')
-tom.shapesize(mul + 1)
+tom.shapesize(mul, outline=contour)
 tom.color(color1, color2)
-tom.pensize(contour)
+tom.ht()
 tom.pu()
-tom.goto(0, -(radius - contour))
-
+tom.goto(0, -radius)
 step = 360 / count
 for i in range(count):
     tom.stamp()
-    tom.circle(radius - contour, step)
+    tom.circle(radius, step)
+turtle.update()
 turtle.done()
