@@ -1,0 +1,6 @@
+salmon crimson gold yellow yellowgreen limegreen cornflowerblue royalblue
+50
+CTTCCT
+SSTTTC
+TTCSTT
+TTTCSS
